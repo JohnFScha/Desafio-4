@@ -43,6 +43,11 @@ form {
     border-radius: 10px;
     background-color: rgb(48, 151, 55);
     font-weight: bold;
+    
+    &:active {
+      background-color: rgb(32, 99, 37);
+      width: 24.50%;
+    }
   }
 }
 
