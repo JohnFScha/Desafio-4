@@ -16,19 +16,21 @@
     <input type="string" name="status" class="input" required>
     <button type="submit" id="submit">Crear Producto</button>
 </form>
+    <section id="productList">
     {{#if products}}
     {{#each products}}
     {{#if this.status}}
-    <section id="productList">
-        <h2>Producto: <strong>{{this.title}}</strong></h2>
-        <p>Descripcion: <strong>{{this.description}}</strong></p>
-        <p>Cantidad: <strong>{{this.stock}}</strong></p>
-        <p>Precio: <strong>${{this.price}}</strong></p>
-    </section>
+        <article id="prod">
+            <h2>Producto: <strong>{{this.title}}</strong></h2>
+            <p class="data">Descripcion: <strong>{{this.description}}</strong></>
+            <p class="data">Stock: <strong>{{this.stock}}</strong></p>
+            <p class="data">Precio: <strong>${{this.price}}</strong></p>
+        </article>
     {{/if}}
     {{/each}}
     {{else}}
-    <section>
+    <article>
         <h2>No products</h2>
-    </section>
+    </article>
     {{/if}}
+    </section>
