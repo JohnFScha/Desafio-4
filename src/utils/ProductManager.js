@@ -2,7 +2,7 @@ import fs from "fs";
 
 class ProductManager {
   constructor(path) {
-    this.lastProductId = 1;
+    this.lastProductId = 0;
     this.path = path;
   }
 

@@ -32,8 +32,8 @@ io.on('connection', (socket) => {
 
   socket.on('nuevoProducto', (producto) => {
     manager.addProduct(producto)
-
-    socket.emit("mensajeProducto", 'El producto se creó satisfactoriamente')
+    const products = manager.getProducts();
+    socket.emit("productosActualizados", products)
   })
 })
 
@@ -44,7 +44,7 @@ app.use('/api/products', prodRouter)
 // Handlebars
 app.get('/static/realTimeProducts', (req, res) => {
   const products = manager.getProducts()
-  
+
   res.render('realtimeproducts', {
     rutaCSS: 'styles',
     rutaJS: 'realTimeProducts',
