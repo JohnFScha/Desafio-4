@@ -31,8 +31,8 @@ io.on('connection', (socket) => {
   console.log('Conexion con socket')
 
   socket.on('nuevoProducto', (producto) => {
-    manager.addProduct(producto)
-    const products = manager.getProducts();
+    manager.addProduct(producto);
+    const products = manager.getProducts()
     socket.emit("productosActualizados", products)
   })
 })
@@ -42,12 +42,10 @@ app.use('/static', express.static(path.resolve(__dirname, './public')))
 app.use('/api/products', prodRouter)
 
 // Handlebars
-app.get('/static/realTimeProducts', (req, res) => {
-  const products = manager.getProducts()
+app.get('/static/realtimeproducts', (req, res) => {
 
-  res.render('realtimeproducts', {
+  res.render('realTimeProducts', {
     rutaCSS: 'styles',
-    rutaJS: 'realTimeProducts',
-    products: products
+    rutaJS: 'realTimeProducts'
   })
 })

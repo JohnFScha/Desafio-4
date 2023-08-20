@@ -19,18 +19,20 @@ form.addEventListener('submit', (e) => {
     e.target.reset()
 })
 
+
+// Funcion para añadir arituclos al HTML en timepo real.
 function updateProductList(products) {
-  // Clear the existing product list on the UI
   const productListContainer = document.getElementById('productList');
   productListContainer.innerHTML = '';
 
-  // Loop through the updated products and append them to the list
   products.forEach((product) => {
     const productHTML = `
-      <h2>Producto: <strong>${product.title}</strong></h2>
-      <p>Descripcion: <strong>${product.description}</strong></p>
-      <p>Cantidad: <strong>${product.stock}</strong></p>
-      <p>Precio: <strong>${product.price}</strong></p>
+      <article id="prod">
+        <h2>Producto: <strong>${product.title}</strong></h2>
+        <p>Descripcion: <strong>${product.description}</strong></p>
+        <p>Cantidad: <strong>${product.stock}</strong></p>
+        <p>Precio: <strong>${product.price}</strong></p>
+      </article>
     `;
     productListContainer.innerHTML += productHTML;
   });
