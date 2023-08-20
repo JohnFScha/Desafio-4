@@ -1,6 +1,7 @@
 const socket = io()
 
 const form = document.getElementById('formProduct')
+const productListContainer = document.getElementById('productList');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -9,7 +10,8 @@ form.addEventListener('submit', (e) => {
     socket.emit('nuevoProducto', producto)
     socket.on('productosActualizados', (products) => {
       
-      updateProductList(products);
+      // Invoco la funcion para actualizar el html con los productos traidos desde la conexion con socket.io
+      // updateProductList(products);
 
       Swal.fire({
         title: 'Producto añadido correctamente!',
@@ -21,8 +23,7 @@ form.addEventListener('submit', (e) => {
 
 
 // Funcion para añadir arituclos al HTML en timepo real.
-function updateProductList(products) {
-  const productListContainer = document.getElementById('productList');
+/* function updateProductList(products) {
   productListContainer.innerHTML = '';
 
   products.forEach((product) => {
@@ -36,4 +37,4 @@ function updateProductList(products) {
     `;
     productListContainer.innerHTML += productHTML;
   });
-}
+} */
