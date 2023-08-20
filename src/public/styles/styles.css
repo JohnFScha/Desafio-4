@@ -52,9 +52,8 @@ form {
 }
 
 section {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   width: 75%;
   margin: 20px auto;
@@ -65,14 +64,15 @@ section {
   box-shadow: 0px 0px 15px white;
 
     #prod {
-      border-bottom: 1px gray solid;
-
+      border-right: 1px gray solid;
+      padding: 10px;
+      
       .data {
         margin-left: 30px;
       }
     }
 
-    #prod:last-child {
+    #prod:nth-child(3) {
       border: none;
     }
 }

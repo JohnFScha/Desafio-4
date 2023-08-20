@@ -3,7 +3,6 @@ import { engine } from "express-handlebars";
 import { Server } from "socket.io";
 import { __dirname } from "./path.js";
 import path from 'path';
-import prodRouter from "./routes/products.routes.js";
 import ProductManager from "./utils/ProductManager.js";
 
 const app = express();
@@ -39,13 +38,13 @@ io.on('connection', (socket) => {
 
 // Rutas
 app.use('/static', express.static(path.resolve(__dirname, './public')))
-app.use('/api/products', prodRouter)
 
 // Handlebars
 app.get('/static/realtimeproducts', (req, res) => {
-
+  const products = manager.getProducts()
   res.render('realTimeProducts', {
     rutaCSS: 'styles',
-    rutaJS: 'realTimeProducts'
+    rutaJS: 'realTimeProducts',
+    products: products
   })
 })
